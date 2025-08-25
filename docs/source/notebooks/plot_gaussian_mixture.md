@@ -10,7 +10,6 @@ jupytext:
 
 # Linear classification with rate constraints.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cooper-org/cooper/blob/main/docs/source/notebooks/plot_gaussian_mixture.ipynb)
 
 
 :::{note}
@@ -85,7 +84,7 @@ feasible solution.
 
 ```{code-cell} ipython3
 %%capture
-%pip install cooper-optim
+%pip install .
 ```
 
 ```{code-cell} ipython3

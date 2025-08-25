@@ -10,14 +10,13 @@ jupytext:
 
 # Learning a Directed Acyclic Graph (DAG) on data.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cooper-org/cooper/blob/main/docs/source/notebooks/plot_dag_learning.ipynb)
 
 
 This tutorial considers the problem of learning a Directed Acyclic Graph (DAG) on data. This is a common problem in causal inference, where we are interested in learning the dependency relationships between variables. In this notebook, we will demonstrate how to learn a DAG on data using a {py:class}`~cooper.formulations.QuadraticPenalty` formulation in **Cooper**.
 
 ```{code-cell} ipython3
 %%capture
-%pip install cooper-optim
+%pip install .
 ```
 
 ```{code-cell} ipython3

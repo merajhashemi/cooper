@@ -10,7 +10,6 @@ jupytext:
 
 # Finding the min-norm solution to a linear system of equations.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cooper-org/cooper/blob/main/docs/source/notebooks/plot_min_norm.ipynb)
 
 
 This example considers the problem of finding the min-L2-norm solution to a system of
@@ -45,7 +44,7 @@ convergence of the algorithm.
 
 ```{code-cell} ipython3
 %%capture
-%pip install cooper-optim
+%pip install .
 ```
 
 ```{code-cell} ipython3

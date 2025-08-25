@@ -10,7 +10,6 @@ jupytext:
 
 # Finding a spectrum-constrained linear transformation between two vectors.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cooper-org/cooper/blob/main/docs/source/notebooks/plot_infrequent_true_constraint.ipynb)
 
 
 :::{note}
@@ -62,7 +61,7 @@ constant in-between measurements of the true constraint.
 
 ```{code-cell} ipython3
 %%capture
-%pip install cooper-optim
+%pip install .
 ```
 
 ```{code-cell} ipython3

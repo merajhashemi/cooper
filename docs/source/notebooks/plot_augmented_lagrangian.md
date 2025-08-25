@@ -10,15 +10,13 @@ jupytext:
 
 # Using the Augmented Lagrangian function.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cooper-org/cooper/blob/main/docs/source/notebooks/plot_augmented_lagrangian.ipynb)
-
 
 
 This tutorial demonstrates how to use the {py:class}`~cooper.formulations.AugmentedLagrangian` formulation to solve constrained optimization problems in Cooper. We illustrate its usage and advantages over the {py:class}`~cooper.formulations.QuadraticPenalty` formulation with a simple 2D example from {cite:p}`nocedal2006NumericalOptimization`.
 
 ```{code-cell} ipython3
 %%capture
-%pip install cooper-optim
+%pip install .
 ```
 
 ```{code-cell} ipython3

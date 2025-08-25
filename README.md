@@ -29,13 +29,7 @@ You can check out **Cooper**'s FAQ [here](#faq).
 To install the latest release of **Cooper**, use the following command:
 
 ```bash
-pip install cooper-optim
-```
-
-To install the latest **development** version, use the following command instead:
-
-```bash
-pip install git+https://github.com/cooper-org/cooper@main
+pip install .
 ```
 
 ## Getting Started

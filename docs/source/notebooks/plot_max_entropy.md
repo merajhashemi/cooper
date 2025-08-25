@@ -10,7 +10,6 @@ jupytext:
 
 # Finding a maximum entropy (discrete) distribution using the Lagrangian Approach.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cooper-org/cooper/blob/main/docs/source/notebooks/plot_max_entropy.ipynb)
 
 
 Here we consider a simple convex optimization problem to illustrate how to use
@@ -40,7 +39,7 @@ the dual variables. For a detailed explanation of the $\nu$PI algorithm, see the
 
 ```{code-cell} ipython3
 %%capture
-%pip install cooper-optim
+%pip install .
 ```
 
 ```{code-cell} ipython3

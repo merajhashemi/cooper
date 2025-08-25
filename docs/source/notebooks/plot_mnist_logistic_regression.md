@@ -10,7 +10,6 @@ jupytext:
 
 # Training a logistic regression classifier on MNIST under a norm constraint.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cooper-org/cooper/blob/main/docs/source/notebooks/plot_mnist_logistic_regression.ipynb)
 
 
 :::{note}
@@ -32,7 +31,7 @@ pipeline, where:
 
 ```{code-cell} ipython3
 %%capture
-%pip install cooper-optim
+%pip install .
 ```
 
 ```{code-cell} ipython3

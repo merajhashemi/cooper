@@ -25,9 +25,9 @@ While **Cooper** requires constraint differentiability, the [proxy constraints](
 
 :::{dropdown} Where can I get help with **Cooper**?
 
-If you spot any bugs, please raise an [issue](https://github.com/cooper-org/cooper/issues).
+If you spot any bugs, please raise an issue.
 
-You can ask questions and get help on the [Discussions page](https://github.com/cooper-org/cooper/discussions).
+You can ask questions and get help on the Discussions page.
 
 :::
 
@@ -207,21 +207,6 @@ If your problem involves a large number of constraints, you can use [IndexedMult
 :::
 
 ### Miscellaneous
-
-:::{container} reset-highlight-margin
-:::{dropdown} How do I cite **Cooper**?
-To cite **Cooper**, please cite [this paper](https://arxiv.org/abs/2504.01212):
-
-```bibtex
-@article{gallegoPosada2025cooper,
-    author={Gallego-Posada, Jose and Ramirez, Juan and Hashemizadeh, Meraj and Lacoste-Julien, Simon},
-    title={{Cooper: A Library for Constrained Optimization in Deep Learning}},
-    journal={arXiv preprint arXiv:2504.01212},
-    year={2025}
-}
-```
-:::
-::::
 
 :::{dropdown} Is there a JAX version of **Cooper**?
 Not at the moment, but we’d love to see a JAX version of Cooper!

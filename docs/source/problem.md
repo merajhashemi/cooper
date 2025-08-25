@@ -248,4 +248,4 @@ loaded_state = torch.load("cmp_state.pth")
 cmp.load_state_dict(loaded_state) # Load checkpointed multipliers and coefficients
 ```
 
-For a full working example, see [this tutorial](https://cooper.readthedocs.io/en/latest/notebooks/plot_mnist_logistic_regression.html).
+For a full working example, see this tutorial.

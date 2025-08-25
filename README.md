@@ -1,18 +1,5 @@
 # **Cooper**
 
-[![LICENSE](https://img.shields.io/github/license/cooper-org/cooper)](https://github.com/cooper-org/cooper/tree/main/LICENSE)
-[![Version](https://img.shields.io/pypi/v/cooper-optim?label=version)](https://pypi.python.org/pypi/cooper-optim)
-[![Python](https://img.shields.io/pypi/pyversions/cooper-optim?label=Python&logo=python&logoColor=white)](https://pypi.python.org/pypi/cooper-optim)
-[![PyTorch](https://img.shields.io/badge/PyTorch-1.13.1+-EE4C2C?logo=pytorch)](https://pytorch.org/docs/stable/index.html)
-[![DOCS](https://img.shields.io/readthedocs/cooper)](https://cooper.readthedocs.io/en/latest/?version=latest)
-[![Coverage badge](https://raw.githubusercontent.com/cooper-org/cooper/python-coverage-comment-action-data/badge.svg)](https://github.com/cooper-org/cooper/tree/python-coverage-comment-action-data)
-[![Continuous Integration](https://github.com/cooper-org/cooper/actions/workflows/ci.yaml/badge.svg)](https://github.com/cooper-org/cooper/actions/workflows/ci.yaml)
-[![Stars](https://img.shields.io/github/stars/cooper-org/cooper)](https://github.com/cooper-org/cooper)
-[![HitCount](https://hits.sh/github.com/cooper-org/cooper.svg)](https://cooper.readthedocs.io/en/latest/?version=latest)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)](https://github.com/cooper-org/cooper/issues)
-[![Discord](https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white)](https://discord.gg/Aq5PjH8m6E)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-
 ## What is **Cooper**?
 
 **Cooper** is a library for solving constrained optimization problems in [PyTorch](https://github.com/pytorch/pytorch).
@@ -58,21 +45,21 @@ pip install git+https://github.com/cooper-org/cooper@main
 
 To use **Cooper**, you need to:
 
-- Implement a [`ConstrainedMinimizationProblem`](https://cooper.readthedocs.io/en/latest/problem.html#cooper.ConstrainedMinimizationProblem) (CMP) class and its associated [`ConstrainedMinimizationProblem.compute_cmp_state`](https://cooper.readthedocs.io/en/latest/problem.html#cooper.ConstrainedMinimizationProblem.compute_cmp_state) method. This method computes the value of the objective function and constraint violations, and packages them in a [`CMPState`](https://cooper.readthedocs.io/en/latest/problem.html#cooper.CMPState) object.
-- The initialization of the [`CMP`](https://cooper.readthedocs.io/en/latest/problem.html#cooper.ConstrainedMinimizationProblem) must create a [`Constraint`](https://cooper.readthedocs.io/en/latest/problem.html#cooper.constraints.Constraint) object for each constraint. It is necessary to specify a formulation type (e.g. [`Lagrangian`](https://cooper.readthedocs.io/en/latest/formulations.html#cooper.formulations.Lagrangian)). Finally, if the chosen formulation requires it, each constraint needs an associated [`Multiplier`](https://cooper.readthedocs.io/en/latest/multipliers.html) object corresponding to the Lagrange multiplier for that constraint.
-- Create a [`torch.optim.Optimizer`](https://pytorch.org/docs/stable/optim.html#torch.optim.Optimizer) for the primal variables and a [`torch.optim.Optimizer(maximize=True)`](https://pytorch.org/docs/stable/optim.html#torch.optim.Optimizer) for the dual variables (i.e. the multipliers). Then, wrap these two optimizers in a [`cooper.optim.CooperOptimizer`](https://cooper.readthedocs.io/en/latest/optim.html#cooper.optim.CooperOptimizer) (such as [`SimultaneousOptimizer`](https://cooper.readthedocs.io/en/latest/optim.html#cooper.optim.SimultaneousOptimizer) for executing simultaneous primal-dual updates).
-- You are now ready to perform updates on the primal and dual parameters using the [`CooperOptimizer.roll()`](https://cooper.readthedocs.io/en/latest/optim.html#cooper.optim.CooperOptimizer.roll) method. This method triggers the following calls:
+- Implement a `ConstrainedMinimizationProblem` (CMP) class and its associated `ConstrainedMinimizationProblem.compute_cmp_state` method. This method computes the value of the objective function and constraint violations, and packages them in a `CMPState` object.
+- The initialization of the `CMP` must create a `Constraint` object for each constraint. It is necessary to specify a formulation type (e.g. `Lagrangian`). Finally, if the chosen formulation requires it, each constraint needs an associated `Multiplier` object corresponding to the Lagrange multiplier for that constraint.
+- Create a `torch.optim.Optimizer` for the primal variables and a `torch.optim.Optimizer(maximize=True)` for the dual variables (i.e. the multipliers). Then, wrap these two optimizers in a `cooper.optim.CooperOptimizer` (such as `SimultaneousOptimizer` for executing simultaneous primal-dual updates).
+- You are now ready to perform updates on the primal and dual parameters using the `CooperOptimizer.roll()` method. This method triggers the following calls:
   - `zero_grad()` on both optimizers,
-  - [`compute_cmp_state()`](https://cooper.readthedocs.io/en/latest/problem.html#cooper.ConstrainedMinimizationProblem.compute_cmp_state) on the [`CMP`](https://cooper.readthedocs.io/en/latest/problem.html#cooper.ConstrainedMinimizationProblem),
-  - compute the Lagrangian based on the latest [`CMPState`](https://cooper.readthedocs.io/en/latest/problem.html#cooper.CMPState),
+  - `compute_cmp_state()` on the `CMP`,
+  - compute the Lagrangian based on the latest `CMPState`,
   - `backward()` on the Lagrangian,
-  - [`step()`](https://pytorch.org/docs/stable/generated/torch.optim.Optimizer.step.html#torch.optim.Optimizer.step) on both optimizers.
-- To access the value of the loss, constraint violations, and Lagrangian terms, you can inspect the returned [`RollOut`](https://cooper.readthedocs.io/en/latest/optim.html#cooper.optim.RollOut) object from the call to [`roll()`](https://cooper.readthedocs.io/en/latest/optim.html#cooper.optim.CooperOptimizer.roll).
+  - `step()` on both optimizers.
+- To access the value of the loss, constraint violations, and Lagrangian terms, you can inspect the returned `RollOut` object from the call to `roll()`.
 
 ### Example
 
 This is an abstract example on how to solve a constrained optimization problem with
-**Cooper**. You can find runnable notebooks with concrete examples in our [**Tutorials**](https://cooper.readthedocs.io/en/latest/notebooks/index.html).
+**Cooper**. You can find runnable notebooks with concrete examples in our **Tutorials**.
 
 ```python
 import cooper
@@ -123,35 +110,15 @@ for epoch_num in range(NUM_EPOCHS):
 
 ## Contributions
 
-We appreciate all contributions. Please let us know if you encounter a bug by [filing an issue](https://github.com/cooper-org/cooper/issues).
+We appreciate all contributions. Please let us know if you encounter a bug by filing an issue.
 
-If you plan to contribute new features, utility functions, or extensions, please first open an issue and discuss the feature with us. To learn more about making a contribution to **Cooper**, please see our [Contribution page](https://cooper.readthedocs.io/en/latest/CONTRIBUTING.html).
+If you plan to contribute new features, utility functions, or extensions, please first open an issue and discuss the feature with us. To learn more about making a contribution to **Cooper**, please see our Contribution page.
 
 ## Papers Using **Cooper**
 
 **Cooper** has enabled several papers published at top machine learning conferences: [Gallego-Posada et al. (2022)](https://arxiv.org/abs/2208.04425); [Lachapelle and Lacoste-Julien (2022)](https://arxiv.org/abs/2207.07732); [Ramirez and Gallego-Posada (2022)](https://arxiv.org/abs/2207.04144); [Zhu et al. (2023)](https://arxiv.org/abs/2310.08106); [Hashemizadeh et al. (2024)](https://arxiv.org/abs/2310.20673); [Sohrabi et al. (2024)](https://arxiv.org/abs/2406.04558); [Lachapelle et al. (2024)](https://arxiv.org/abs/2401.04890); [Jang et al. (2024)](https://arxiv.org/abs/2312.10289); [Navarin et al. (2024)](https://ieeexplore.ieee.org/document/10650578); [Chung et al. (2024)](https://arxiv.org/abs/2404.01216).
 
-
-## Acknowledgements
-
-We thank Manuel Del Verme, Daniel Otero, and Isabel Urrego for useful discussions during the early stages of **Cooper**.
-
-Many **Cooper** features arose during the development of several research papers. We would like to thank our co-authors Yoshua Bengio, Juan Elenter, Akram Erraqabi, Golnoosh Farnadi, Ignacio Hounie, Alejandro Ribeiro, Rohan Sukumaran, Motahareh Sohrabi and Tianyue (Helen) Zhang.
-
 ## License
 
 **Cooper** is distributed under an MIT license, as found in the
-[LICENSE](https://github.com/cooper-org/cooper/tree/main/LICENSE) file.
-
-## How to cite **Cooper**
-
-To cite **Cooper**, please cite [this paper](https://arxiv.org/abs/2504.01212):
-
-```bibtex
-@article{gallegoPosada2025cooper,
-    author={Gallego-Posada, Jose and Ramirez, Juan and Hashemizadeh, Meraj and Lacoste-Julien, Simon},
-    title={{Cooper: A Library for Constrained Optimization in Deep Learning}},
-    journal={arXiv preprint arXiv:2504.01212},
-    year={2025}
-}
-```
+LICENSE file.

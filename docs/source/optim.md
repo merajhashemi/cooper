@@ -284,7 +284,7 @@ state_dict = torch.load("checkpoint.pth")
 constrained_optimizer.load_state_dict(state_dict) # Automatically loads the state of the primal and dual optimizers
 ```
 
-For a full working example, see [this tutorial](https://cooper.readthedocs.io/en/latest/notebooks/plot_mnist_logistic_regression.html).
+For a full working example, see this tutorial.
 
 
 ```{eval-rst}

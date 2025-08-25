@@ -7,7 +7,7 @@ import torch
 import cooper
 from cooper.optim import nuPI, nuPIInitType
 
-# TODO(juan43ramirez): test with multiple parameter groups
+# TODO: test with multiple parameter groups
 
 
 # Parameter order is: Kp, Ki, ema_nu

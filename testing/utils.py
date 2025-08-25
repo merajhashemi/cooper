@@ -13,7 +13,7 @@ def frozen_rand_generator(seed=2147483647):
     """Creates a pseudo random number generator object with a fixed seed for
     reproducible tests.
     """
-    # TODO(juan43ramirez): Random number generator producing error when using cuda.
+    # TODO: Random number generator producing error when using cuda.
     device = "cpu"
     generator = torch.Generator(device)
     generator.manual_seed(seed)

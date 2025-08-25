@@ -17,16 +17,6 @@ keywords = [
 ]
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [
-    { name = "Jose Gallego-Posada", email = "jgalle29@gmail.com" },
-    { name = "Juan Ramirez", email = "juan43.ramirez@gmail.com" },
-    { name = "Meraj Hashemizadeh", email = "merajhashemi@yahoo.co.uk" },
-]
-maintainers = [
-    { name = "Jose Gallego-Posada", email = "jgalle29@gmail.com" },
-    { name = "Juan Ramirez", email = "juan43.ramirez@gmail.com" },
-    { name = "Meraj Hashemizadeh", email = "merajhashemi@yahoo.co.uk" },
-]
 requires-python = ">=3.9"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -93,13 +83,6 @@ tests = [
     "numpy>=1.26.4,<2",  # PyTorch 2.2.2 and older don't support NumPy 2.0.
     "pytest>=8.3.5",
 ]
-
-[project.urls]
-Homepage = "https://github.com/cooper-org/cooper"
-Download = "https://pypi.org/project/cooper-optim/#files"
-Documentation = "https://cooper.readthedocs.io"
-Source = "https://github.com/cooper-org/cooper"
-Tracker = "https://github.com/cooper-org/cooper/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/cooper"]

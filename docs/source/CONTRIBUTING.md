@@ -21,10 +21,10 @@ We aim to expand **Cooper** with several new features, and would love your help!
 
 Please follow these steps to contribute:
 
-1. If you plan to contribute new features, please first open an [issue](https://github.com/cooper-org/cooper/issues) and discuss the feature with us.
+1. If you plan to contribute new features, please first open an issue and discuss the feature with us.
 
 2. Fork the **Cooper** repository by clicking the **Fork** button on the
-   [repository page](http://www.github.com/cooper-org/cooper).
+   repository page.
 
 3. Install `uv` to install the dependencies. See [installation guide](https://docs.astral.sh/uv/getting-started/installation/).
 
@@ -43,10 +43,6 @@ Please follow these steps to contribute:
 
 5. Add the **Cooper** repo as an upstream remote, so you can use it to sync your
    changes.
-
-   ```bash
-   git remote add upstream https://www.github.com/cooper-org/cooper
-   ```
 
 6. Create a branch where you will develop from:
 
@@ -143,7 +139,7 @@ uv run jupytext --sync path/to/notebook.ipynb
 ```
 
 The jupytext version should match that specified in
-[.pre-commit-config.yaml](https://github.com/cooper-org/cooper/blob/main/.pre-commit-config.yaml).
+.pre-commit-config.yaml.
 
 To check that the markdown and ipynb files are properly synced, you may use the [pre-commit](https://pre-commit.com/) framework to perform the same check used by the GitHub CI:
 

@@ -26,7 +26,7 @@ def evaluate_constraint_factor(
         constraint_features: The observed features of the constraint.
         expand_shape: Shape of the constraint violation tensor.
     """
-    # TODO(gallego-posada): This way of calling the modules assumes either 0 or 1
+    # TODO: This way of calling the modules assumes either 0 or 1
     # arguments. This should be generalized to allow for multiple arguments.
     value = module(constraint_features) if module.expects_constraint_features else module()
 

@@ -57,7 +57,7 @@ class SimultaneousOptimizer(ConstrainedOptimizer):
 
         cmp_state = self.cmp.compute_cmp_state(**compute_cmp_state_kwargs)
 
-        # TODO (gallego-posada): The current design goes over the constraints twice. We
+        # TODO: The current design goes over the constraints twice. We
         # could reduce overhead by writing a dedicated compute_lagrangian function for
         # the simultaneous updates
         primal_lagrangian_store = cmp_state.compute_primal_lagrangian()

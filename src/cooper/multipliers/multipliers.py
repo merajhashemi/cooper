@@ -169,7 +169,7 @@ class IndexedMultiplier(ExplicitMultiplier):
             # torch.nn.functional.embedding and *not* as masks.
             raise ValueError("Indices must be of type torch.long.")
 
-        # TODO(gallego-posada): Document sparse gradients are expected for stateful
+        # TODO: Document sparse gradients are expected for stateful
         # optimizers (having buffers)
         multiplier_values = torch.nn.functional.embedding(indices, self.weight, sparse=True)
 
